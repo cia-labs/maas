@@ -19,7 +19,7 @@ By automating feature extraction, we'll free up the researchers' time for more a
   2. Extract relevant features automatically.
   3. Provide accurate input data to the existing scoring system.
 
-## POC Methodology 
+## POC  
 Any Machine learning system requires four stages in it's development process.
 1. Datasets
 2. Training
