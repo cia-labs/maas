@@ -8,7 +8,7 @@
 Current Workflow:
 
   1. Ecologists visually analyze images of individuals.
-  2. Based on this analysis, they manually input values for over 100 parameters, such as ear shape and presence of tusks, into a system.
+  2. Based on this analysis, they manually input values for over 100 parameters, such as ear shape, presence of tusks and others into a system.
   3. The system utilizes these inputs to generate a probabilistic score for individual identification.
 
 Automation Approach:
