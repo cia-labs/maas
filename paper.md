@@ -31,7 +31,7 @@ And each of these stages have further granularity in order to be completely usab
    - **Data Collection**   : Data is provided by Feral, where currently we have images for 5 individuals and approimately 50 each. 
    - **Data Augmentation** : The whole purpose of this process is to increase data set size, since 50 no where near enough and will                                      definetly over fit our model. We are currently not sure what kind of strategies we can use to augment data
                              because in the process of augmenting these images, we might loose ciritical information like shapes of certain                              parts of the image. For now at maximum we can do is to mirror the images. Which 2xs the data set size.
-   -**Labeling Annotation**:Studies show that applying segmentation masks over the images gives us fruitful results to see shapes and                                   patterns in the image. We have worked with few tools and we decidel Label Studio is the one we will go ahead
+   - **Labeling Annotation** :Studies show that applying segmentation masks over the images gives us fruitful results to see shapes and                                   patterns in the image. We have worked with few tools and we decidel Label Studio is the one we will go ahead
                             with. In order to avoid then manual process of drawing polygons over features that we want the computer to see,                             we'll have to figure out a way to use SAM(Segment Anything model) and label on top of it. (In Progress)
 2. **Training**
      - **Model Architecture** : We can either choose to go with a exisiting models like yolo etc or we can build our own model architecture.
