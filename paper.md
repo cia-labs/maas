@@ -21,4 +21,3 @@ Automation Approach:
   1. Analyze images using various deep learning techniques.
   2. Extract relevant features automatically.
   3. Provide accurate input data to the existing scoring system.
-
