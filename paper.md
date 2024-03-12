@@ -1,9 +1,9 @@
 # I identify as an Individual 
 
-### Problems Statement
+### Problem Statement
 
 
-### Abstarct
+### Abstract
 
 Current Workflow:
 
