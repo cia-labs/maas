@@ -1,4 +1,4 @@
-# I identify as an Individual 
+# Identity Crisis
 
 ## Abstract
 Imagine a team of dedicated wildlife researchers struggling to identify individual elephants from countless photos. Currently, they meticulously analyze each image, noting specific features like tail markings or ear shape, by hand. This process limits their ability to study larger populations.
