@@ -35,4 +35,11 @@ And each of these stages have further granularity in order to be completely usab
                             with. In order to avoid then manual process of drawing polygons over features that we want the computer to see,                             we'll have to figure out a way to use SAM(Segment Anything model) and label on top of it. (In Progress)
 2. **Training**
      - **Model Architecture** : We can either choose to go with a exisiting models like yolo etc or we can build our own model architecture.
-                                This decision will be based on how our data looks and the areas of focus 
+                                This decision will be based on how our data looks and the areas of focus
+
+
+## References
+1. https://arxiv.org/abs/2006.09962 - WhoAmI 
+2. https://arxiv.org/pdf/2106.15083.pdf - Elephant reidentificaiton (SEEK Coding system)
+3. https://link.springer.com/article/10.1007/s42991-021-00206-2 - need access
+4. https://openaccess.thecvf.com/content_ICCVW_2019/papers/CVWC/Korschens_ELPephants_A_Fine-Grained_Dataset_for_Elephant_Re-Identification_ICCVW_2019_paper.pdf - Uses Bounding box with SVM's - Need to revisit and understand results. 
