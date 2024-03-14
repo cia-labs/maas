@@ -1,8 +1,8 @@
 # Identity Crisis
 
 ## Abstract
-Imagine a team of dedicated wildlife researchers struggling to identify individual elephants from countless photos. Currently, they meticulously analyze each image, noting specific features like tail markings or ear shape, by hand. This process limits their ability to study larger populations.
-This is where our research comes in. We're partnering with these ecologists to automate this classification process. Instead of reinventing the wheel, we'll leverage their expertise. They've identified a crucial set of features – shape of the ear, presence of tusks, shape of the ear lobe, tail positions and a 100 others - that act like an animal's fingerprint.
+Imagine a team of dedicated wildlife researchers struggling to identify individual elephants from countless photos. Currently, they meticulously analyze each image by starring at the screen, noting specific features like tail markings, ear shape and a 100 others. This process limits their ability to study larger populations.
+This is where our research comes in. We're partnering with these ecologists to automate this classification process. Instead of reinventing the wheel, we'll leverage their expertise as they've identified a crucial set of features – shape of the ear, presence of tusks, shape of the ear lobe, tail positions and a 100 others - that act like an elephant's fingerprint.
 Our task is to build an AI system using deep learning and computer vision techniques. This system will analyze photos automatically, recognizing those key features identified by the ecologists. Essentially, it'll learn to "see" the same way the researchers do, but at lightning speed.
 By automating feature extraction, we'll free up the researchers' time for more analysis and discovery. They can finally focus on the bigger picture, studying population trends and animal behavior with a newfound efficiency. This collaboration between cutting-edge AI and ecological expertise holds the potential to revolutionize how we study the natural world.
 
