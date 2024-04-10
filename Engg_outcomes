@@ -1,0 +1,58 @@
+## Search tool
+
+This tool is one of the main components of the vision tech pipeline that CIA Labs is building for Feral. 
+
+### Abstract
+This section outlines the design and outcomes of an image management and search tool designed to automate image organization and facilitate efficient retrieval. The tool ingests images or folders of images, extracts metadata, organizes the files, and creates a searchable index within a database optimized for Meilisearch - the integrated search engine.
+
+### Introduction
+Organizing large datasets of images while also ensuring easy and fast access can be a challenging task. Manually organizing and labeling images is time-consuming and error-prone. This image management and search tool addresses these challenges by automating the process of image organization and enabling advanced, yet efficient search functionalities.
+
+### System Design
+#### Functionality Overview
+The system offers a streamlined workflow for image management and search. Here's a breakdown of its core functionalities:
+
+1. *Image Ingestion*: The tool accepts images or folders containing images as input.
+2. *Metadata Extraction and Organization*: It extracts relevant metadata from the images, such as filename, creation date, and image dimensions. The tool then organizes the images based on user-defined criteria or inherent properties.
+3. *Indexing*: Extracted metadata is used to create an index. 
+4. *Search*: Meilisearch then uses the generated index to perform search on the entire dataset.
+
+#### Technical Stack
+
+Programming Language: Python.
+Image Processing Library: Pillow.
+NoSQL Database: MongoDB
+Search Engine: Meilisearch
+
+#### Functionality Breakdown
+
+**Image Ingestion**
+The tool ingests images or folders of images. The user can specify the source directory containing the images, and the tool handles the ingestion process.
+
+**Metadata Extraction and Organization**
+Upon ingestion, the tool extracts relevant metadata from each image. This might include:
+
+*Default tags*
+Filename
+Creation Date
+Image Format (JPEG, PNG, etc.)
+Dimensions (Width, Height)
+Camera Model (if available)
+GPS Location (if available)
+
+*User generated tags*
+(yet to be added)
+
+Extracted metadata can be used to organize the images in various ways. 
+
+**Indexing**
+Extracted metadata is used to create a searchable index within a NoSQL database (MongoDB). This index is optimized for Meilisearch, the integrated search engine. Users can search for images based on various criteria, such as filename, creation date, or key entities from the image content (yet to be implemented).
+
+#### Outcomes
+
+The tool allows users to:
+
+- Dump images from an external source to automatically organize and index.
+- Group images by specific parameters(e.g., date, camera model)
+- Rename files based on extracted metadata(automated).
+- Retrieve a custom selection of files based on search criteria.
