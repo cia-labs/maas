@@ -2,3 +2,5 @@
 
 ### Current Efforts
 [paper.md](https://github.com/cia-labs/vision-tech/blob/main/paper.md)
+
+Other research is also happening via issues, Please check out the issues section. 
