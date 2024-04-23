@@ -42,4 +42,8 @@ And each of these stages have further granularity in order to be completely usab
 1. https://arxiv.org/abs/2006.09962 - WhoAmI 
 2. https://arxiv.org/pdf/2106.15083.pdf - Elephant reidentificaiton (SEEK Coding system)
 3. https://link.springer.com/article/10.1007/s42991-021-00206-2 - need access
-4. https://openaccess.thecvf.com/content_ICCVW_2019/papers/CVWC/Korschens_ELPephants_A_Fine-Grained_Dataset_for_Elephant_Re-Identification_ICCVW_2019_paper.pdf - Uses Bounding box with SVM's - Need to revisit and understand results. 
+4. https://openaccess.thecvf.com/content_ICCVW_2019/papers/CVWC/Korschens_ELPephants_A_Fine-Grained_Dataset_for_Elephant_Re-Identification_ICCVW_2019_paper.pdf - Uses Bounding box with SVM's - Need to revisit and understand results.
+
+## Engineering Outcomes
+1. Storage service optimised for Machine learning practices - https://github.com/cia-labs/Storage-service
+2. Custom Label Studio with Segment Anything Integration - In Design phase
