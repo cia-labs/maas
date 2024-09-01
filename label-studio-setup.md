@@ -33,7 +33,7 @@ Validation error
 
   
 
-In order avoid this error, make sure you run the following cmd, before starting the label-studio
+In order to avoid this error, make sure you run the following cmd, before starting the label-studio
 
   
 
