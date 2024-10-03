@@ -43,7 +43,7 @@ async def fetch_image_keys():
 async def fetch_images():
     image_keys = await fetch_image_keys()
     saved_images = []
-    image_directory = "/home/ash/Documents/vision-tech/tester"
+    image_directory = "/opt/label-studio-data"
     os.makedirs(image_directory, exist_ok=True)
 
     async with httpx.AsyncClient() as client:
