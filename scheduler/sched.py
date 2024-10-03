@@ -1,9 +1,10 @@
 import datetime as dt
 import os
-import time
 import base64
 import httpx
-from scheduler import Scheduler
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.triggers.cron import CronTrigger
+from contextlib import asynccontextmanager
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from pymongo import MongoClient
@@ -11,7 +12,7 @@ from pymongo import MongoClient
 load_dotenv()
 
 app = FastAPI()
-schedule = Scheduler()
+scheduler = AsyncIOScheduler()
 
 DB_URI = os.getenv("DB_URI")
 DB_NAME = os.getenv("DB_NAME")
@@ -20,14 +21,29 @@ client = MongoClient(DB_URI)
 db = client[DB_NAME]
 collection = db['feedback']
 
-async def fetch_image_keys():
-    return list(collection.find({"qa.0.answer": "No"}, {"imageKey": 1}))
+"""
+This is used while testing
+Fetches the all the images...
+"""
+# async def fetch_image_keys():
+#     return list(collection.find({"qa.0.answer": "No"}, {"imageKey": 1}))
 
+
+"""
+Fetches the image key of that day
+"""
+async def fetch_image_keys():
+    today = dt.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    tomorrow = today + dt.timedelta(days=1)
+    return list(collection.find({
+        "qa.0.answer": "No",
+        "createdAt": {"$gte": today, "$lt": tomorrow}
+    }, {"imageKey": 1}))
 
 async def fetch_images():
     image_keys = await fetch_image_keys()
     saved_images = []
-    image_directory = "/home/ash/Documents/vision-tech/test"
+    image_directory = "/home/ash/Documents/vision-tech/tester"
     os.makedirs(image_directory, exist_ok=True)
 
     async with httpx.AsyncClient() as client:
@@ -35,12 +51,10 @@ async def fetch_images():
             image_key = item.get("imageKey")
             if image_key:
                 try:
-
                     url = f"https://storage.cialabs.org/get/{image_key}"
                     response = await client.get(url)
                     
                     if response.status_code == 200:
-
                         image_data = base64.b64decode(response.text)
                         filename = f"{image_key}.jpg"
                         image_path = os.path.join(image_directory, filename)
@@ -48,13 +62,22 @@ async def fetch_images():
                         with open(image_path, "wb") as image_file:
                             image_file.write(image_data)
                             saved_images.append(image_path)
-                            print(f"Saved image to: {image_path}")
-                    else:
-                        print(f"Failed to fetch image for key {image_key}: {response.status_code}")
                 except Exception as e:
                     print(f"Error processing image for key {image_key}: {e}")
 
     return saved_images
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    scheduler.start()
+    yield
+    scheduler.shutdown()
+
+
+# scheduler.add_job(fetch_images, 'interval', seconds=10)
+scheduler.add_job(fetch_images, CronTrigger(hour=0, minute=0))
+
+app = FastAPI(lifespan=lifespan)
 
 @app.get("/fetch-images")
 async def fetch_images_endpoint():
